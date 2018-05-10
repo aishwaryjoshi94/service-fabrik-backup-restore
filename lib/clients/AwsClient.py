@@ -147,7 +147,7 @@ class AwsClient(BaseClient):
                        snapshot)
 
             snapshot = Snapshot(
-                snapshot.id, snapshot.volume_size, snapshot.state)
+                snapshot.id, snapshot.volume_size, snapshot.start_time, snapshot.state)
             self._add_snapshot(snapshot.id)
 
             self.ec2.create_tags(
