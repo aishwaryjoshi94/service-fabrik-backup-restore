@@ -117,8 +117,7 @@ class BaseClient:
         try:
             return self.__retry_rescuer(function, args)
         except Exception as error:
-            return None
-
+            raise error
     # Retrying configuration parameters currently hard-coded - can be made configurable in future (if needed by anybody)
     @retry(stop_max_attempt_number=5, stop_max_delay=600000, wait_fixed=10000)
     def __retry_rescuer(self, function, args):
